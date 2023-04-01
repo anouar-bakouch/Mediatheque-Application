@@ -4,6 +4,7 @@ import beans.Adherent;
 import beans.Auteur;
 import beans.Oeuvre;
 import beans.Pret;
+import utils.Constants;
 import dao.*;
 import java.util.List;
 
@@ -17,10 +18,10 @@ public class DefaultServices implements Services{
     private static DefaultServices instance;
 
     public DefaultServices(){
-        this.adherentDao = new AdherentDaoImp("resources/adherents.xml");
-        this.oeuvreDao = new OeuvreDaoImp("resources/oeuvres.xml");
-        this.pretDao = new PretDaoImp("resources/prets.xml");
-        this.auteurDao = new AuteurDaoImp("resources/auteurs.xml");
+        this.adherentDao = new AdherentDaoImp(Constants.ADHERENT_FILE);
+        this.oeuvreDao = new OeuvreDaoImp(Constants.OEUVRE_FILE);
+        this.pretDao = new PretDaoImp(Constants.PRET_FILE);
+        this.auteurDao = new AuteurDaoImp(Constants.AUTEUR_FILE);
     }
 
     public static DefaultServices getInstance(){

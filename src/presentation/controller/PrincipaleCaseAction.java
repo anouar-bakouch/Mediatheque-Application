@@ -20,22 +20,18 @@ public class PrincipaleCaseAction implements ActionListener {
 
        if(e.getSource()==Pview.getAuteurBtn()){
            new AuteurView();
-           System.out.println("hello world");
        }
 
        if(e.getSource()==Pview.getOeuvreBtn()){
               new OeuvreView();
-              System.out.println("oeuvre");
        }
 
        if(e.getSource()==Pview.getPretBtn()){
                 new PretView();
-                System.out.println("Pret");
        }
 
        if(e.getSource()==Pview.getAdherentBtn()){
                    new AdherentView();
-                   System.out.println("adherent");
        }
 
     }

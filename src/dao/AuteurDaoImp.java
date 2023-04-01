@@ -18,8 +18,8 @@ public class AuteurDaoImp implements AuteurDao{
     private Element racine;
     private String nomFichier;
 
-    public AuteurDaoImp(String nomFichier) {
-        this.nomFichier = nomFichier;
+    public AuteurDaoImp(String filePath) {
+        this.nomFichier = filePath;
         load();
     }
 
@@ -46,6 +46,7 @@ public class AuteurDaoImp implements AuteurDao{
     public void ajouterAuteur(Auteur auteur) {
 
         Element e = new Element("auteur");
+        e.setAttribute("id", String.valueOf(auteur.getId()));
         Element nom = new Element("nom");
         Element prenom = new Element("prenom");
         Element dateNaissance = new Element("dateNaissance");
@@ -54,10 +55,10 @@ public class AuteurDaoImp implements AuteurDao{
         prenom.addContent(auteur.getPrenom());
         dateNaissance.addContent(auteur.getDateNaissance());
 
+
         e.addContent(nom);
         e.addContent(prenom);
         e.addContent(dateNaissance);
-
         racine.addContent(e);
         save();
     }
