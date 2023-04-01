@@ -43,7 +43,6 @@ public class PretView extends JFrame {
         idAdherentText = new JTextField(23);
         datePretText = new JTextField(23);
 
-
         // initialize the labels
 
         idLabel = new JLabel("ID Oeuvre");

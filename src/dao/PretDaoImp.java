@@ -107,11 +107,10 @@ public class PretDaoImp implements PretDao{
             List<Pret> prets = new ArrayList<>();
             List<Element> list = root.getChildren("pret");
             for (Element e : list) {
-                Pret pret = null;
-                pret.setIdOeuvre(Integer.parseInt(e.getChild("idOeuvre").getText()));
-                pret.setIdAdherent(Integer.parseInt(e.getChild("idAdherent").getText()));
-                pret.setDatePret(e.getChild("datePret").getText());
-                prets.add(pret);
+                int idOeuvre = Integer.parseInt(e.getChild("idOeuvre").getText());
+                int idAdherent = Integer.parseInt(e.getChild("idAdherent").getText());
+                String DatePret = e.getChild("datePret").getText();
+                prets.add(new Pret(idOeuvre,idAdherent,DatePret));
             }
             return prets;
         }

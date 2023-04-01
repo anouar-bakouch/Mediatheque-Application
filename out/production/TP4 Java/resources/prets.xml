@@ -2,6 +2,10 @@
 
 <prets>
 
-
+<pret>
+    <idOeuvre>1</idOeuvre>
+    <idAdherent>1</idAdherent>
+    <datePret>2023</datePret>
+</pret>
 
 </prets>
