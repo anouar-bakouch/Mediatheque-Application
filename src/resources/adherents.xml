@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adherents>
+     <adherent>
+          <nom>Smith</nom>
+          <prenom>John</prenom>
+          <adresse>123 rue de la Paix</adresse>
+          <email> @gmail.com </email>
+            <dateNaissance>01/01/1970</dateNaissance>
+        </adherent>
+</adherents>

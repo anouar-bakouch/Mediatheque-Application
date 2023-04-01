@@ -17,6 +17,7 @@ public interface Services {
     public void supprimerAuteur(Auteur auteur);
     public void modifierAuteur(Auteur auteur);
     public Auteur rechercherAuteur(int id);
+    public Auteur rechercherAuteur(String nom);
     public List<Auteur> getAuteurs();
 
     public void ajouterOeuvre(Oeuvre oeuvre);

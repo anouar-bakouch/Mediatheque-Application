@@ -81,6 +81,17 @@ public class AuteurDaoImp implements AuteurDao{
     }
 
     @Override
+    public Auteur rechercherAuteur(String nom){
+        List<Element> AuteurList = racine.getChildren("auteur");
+        for (Element d : AuteurList) {
+            if (d.getChildText("nom").equals(nom)) {
+                return new Auteur(Integer.parseInt(d.getAttributeValue("id")),d.getChildText("nom"), d.getChildText("prenom"), d.getChildText("dateNaissance"));
+            }
+        }
+        return null;
+    }
+
+    @Override
     public List<Auteur> getAuteurs() {
         List<Auteur> auteurs = new ArrayList<Auteur>();
         List<Element> list = racine.getChildren("auteur");

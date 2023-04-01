@@ -17,6 +17,7 @@ public class AuteurCaseAction implements ActionListener {
         this.auteurView = auteurView;
         this.services = DefaultServices.getInstance();
         initComboBox();
+        initForm();
     }
 
 
@@ -25,10 +26,21 @@ public class AuteurCaseAction implements ActionListener {
     private void initComboBox() {
         auteurView.getAuteurComboBox().removeAllItems();
         for (Auteur auteur : services.getAuteurs()) {
-            auteurView.getAuteurComboBox().addItem(auteur.getNom()+" "+auteur.getPrenom());
+            auteurView.getAuteurComboBox().addItem(auteur.getNom());
         }
     }
 
+    private void initForm(){
+        if(auteurView.getAuteurComboBox().getItemCount() > 0){
+            auteurView.getAuteurComboBox().setSelectedIndex(0);
+            auteurView.getIdTextField().setText(String.valueOf(services.getAuteurs().get(0).getId()));
+            auteurView.getNomTextField().setText(services.getAuteurs().get(0).getNom());
+            auteurView.getPrenomTextField().setText(services.getAuteurs().get(0).getPrenom());
+            auteurView.getDateNaissanceTextField().setText(services.getAuteurs().get(0).getDateNaissance());
+        }
+        else
+            auteurView.getAuteurComboBox().setSelectedIndex(-1);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -47,7 +59,9 @@ public class AuteurCaseAction implements ActionListener {
         // changes related to the combo box
 
         if (e.getSource() == auteurView.getAuteurComboBox()) {
-            Auteur auteur = (Auteur) auteurView.getAuteurComboBox().getSelectedItem();
+            String nomAuteur = auteurView.getAuteurComboBox().getSelectedItem().toString();
+            System.out.println(nomAuteur);
+            Auteur auteur = services.rechercherAuteur(nomAuteur);
             auteurView.getIdTextField().setText(String.valueOf(auteur.getId()));
             auteurView.getNomTextField().setText(auteur.getNom());
             auteurView.getPrenomTextField().setText(auteur.getPrenom());

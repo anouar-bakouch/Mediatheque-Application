@@ -41,6 +41,7 @@ public class AuteurView extends JFrame {
         // initialize the text fields
 
         idTextField = new JTextField(23);
+        idTextField.setEditable(false);
         nomTextField = new JTextField(23);
         prenomTextField = new JTextField(23);
         dateNaissanceTextField = new JTextField(23);

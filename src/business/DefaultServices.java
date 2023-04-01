@@ -72,6 +72,9 @@ public class DefaultServices implements Services{
         return this.auteurDao.rechercherAuteur(id);
     }
 
+    public Auteur rechercherAuteur(String nom) {
+        return this.auteurDao.rechercherAuteur(nom);
+    }
     @Override
     public List<Auteur> getAuteurs() {
         return this.auteurDao.getAuteurs();

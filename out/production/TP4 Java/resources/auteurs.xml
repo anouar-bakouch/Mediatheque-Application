@@ -1,7 +1,18 @@
-<auteur>
-
-    <nom>John Doe</nom>
-    <prenom>John</prenom>
-    <dateNaissance>01/01/1970</dateNaissance>
-
-</auteur>
+<?xml version="1.0" encoding="UTF-8"?>
+<auteurs>
+  <auteur id="1">
+    <nom>light</nom>
+    <prenom>ivan</prenom>
+    <dateNaissance>28/08/2002</dateNaissance>
+  </auteur>
+  <auteur id="2">
+    <nom>ilian</nom>
+    <prenom>lara</prenom>
+    <dateNaissance>07/03/1973</dateNaissance>
+  </auteur>
+  <auteur id="3">
+    <nom>bakouch</nom>
+    <prenom>Anouar</prenom>
+    <dateNaissance>2003/2023</dateNaissance>
+  </auteur>
+</auteurs>
