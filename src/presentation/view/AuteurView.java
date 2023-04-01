@@ -12,6 +12,7 @@ public class AuteurView extends JFrame {
     private JButton ajouterbtn;
     private JButton supprimerbtn;
     private JButton modifierbtn;
+    private JButton cleanBtn;
 
     // Text Fields
 
@@ -58,6 +59,7 @@ public class AuteurView extends JFrame {
         ajouterbtn = new JButton("Ajouter");
         supprimerbtn = new JButton("Supprimer");
         modifierbtn = new JButton("Modifier");
+        cleanBtn = new JButton("Vider");
 
         // initialize the combo box
 
@@ -97,6 +99,7 @@ public class AuteurView extends JFrame {
         bottomPanel.add(ajouterbtn);
         bottomPanel.add(supprimerbtn);
         bottomPanel.add(modifierbtn);
+        bottomPanel.add(cleanBtn);
 
         // set the size of the panels
 
@@ -119,6 +122,7 @@ public class AuteurView extends JFrame {
         this.ajouterbtn.addActionListener(new AuteurCaseAction(this));
         this.supprimerbtn.addActionListener(new AuteurCaseAction(this));
         this.modifierbtn.addActionListener(new AuteurCaseAction(this));
+        this.cleanBtn.addActionListener(new AuteurCaseAction(this));
 
         // add actions to the combo box
 
@@ -180,5 +184,9 @@ public class AuteurView extends JFrame {
 
     public JLabel getDateNaissanceLabel() {
         return dateNaissanceLabel;
+    }
+
+    public JButton getCleanBtn() {
+        return cleanBtn;
     }
 }

@@ -64,10 +64,31 @@ public class AuteurDaoImp implements AuteurDao{
     }
 
     @Override
-    public void supprimerAuteur(Auteur auteur) {}
+    public void supprimerAuteur(Auteur auteur) {
+        List<Element> list = racine.getChildren("auteur");
+        for (Element d : list) {
+            if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
+                racine.removeContent(d);
+                save();
+                break;
+            }
+        }
+    }
 
     @Override
-    public void modifierAuteur(Auteur auteur) {}
+    public void modifierAuteur(Auteur auteur) {
+        List<Element> list = racine.getChildren("auteur");
+        for (Element d : list) {
+            if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
+                d.getChild("nom").setText(auteur.getNom());
+                d.getChild("prenom").setText(auteur.getPrenom());
+                d.getChild("dateNaissance").setText(auteur.getDateNaissance());
+                save();
+                break;
+            }
+        }
+
+    }
 
     @Override
     public Auteur rechercherAuteur(int id) {

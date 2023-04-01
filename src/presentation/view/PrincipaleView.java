@@ -14,10 +14,14 @@ public class PrincipaleView extends JFrame{
 
     private JPanel pan;
 
+    // let us add a picture to the main view
+    private JLabel imageLabel;
+    private ImageIcon image;
+
+
     public PrincipaleView(){
 
         this.choixLbl = new JLabel("Choisissez une action");
-
 
         this.AuteurBtn = new JButton("Auteur");
         this.OeuvreBtn = new JButton("Oeuvre");
