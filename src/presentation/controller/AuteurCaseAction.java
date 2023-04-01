@@ -16,33 +16,43 @@ public class AuteurCaseAction implements ActionListener {
     public AuteurCaseAction(AuteurView auteurView) {
         this.auteurView = auteurView;
         this.services = DefaultServices.getInstance();
+        initComboBox();
     }
 
-    // a method when the user changes the selected item in the combo box
 
-    public void itemStateChanged(ItemEvent e) {
-        if (e.getStateChange() == ItemEvent.SELECTED) {
-            Auteur auteur = (Auteur) e.getItem();
+    // a method to init the combo box with the list of authors
+
+    private void initComboBox() {
+        auteurView.getAuteurComboBox().removeAllItems();
+        for (Auteur auteur : services.getAuteurs()) {
+            auteurView.getAuteurComboBox().addItem(auteur.getNom()+" "+auteur.getPrenom());
+        }
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    // changes related to the add button
+
+        if (e.getSource() == auteurView.getAjouterbtn()) {
+            int id = Integer.parseInt(auteurView.getIdTextField().getText());
+            String nom = auteurView.getNomTextField().getText();
+            String prenom = auteurView.getPrenomTextField().getText();
+            String dateNaissance = auteurView.getDateNaissanceTextField().getText();
+            services.ajouterAuteur(new Auteur(id ,nom, prenom, dateNaissance));
+            initComboBox();
+        }
+
+        // changes related to the combo box
+
+        if (e.getSource() == auteurView.getAuteurComboBox()) {
+            Auteur auteur = (Auteur) auteurView.getAuteurComboBox().getSelectedItem();
             auteurView.getIdTextField().setText(String.valueOf(auteur.getId()));
             auteurView.getNomTextField().setText(auteur.getNom());
             auteurView.getPrenomTextField().setText(auteur.getPrenom());
             auteurView.getDateNaissanceTextField().setText(auteur.getDateNaissance());
         }
-    }
-
-    // a method to init the combo box with the list of authors
-
-    public void initComboBox() {
-        auteurView.getAuteurComboBox().removeAllItems();
-        for (Auteur auteur : services.getAuteurs()) {
-            auteurView.getAuteurComboBox().addItem(auteur.getPrenom()+" "+auteur.getNom());
-        }
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-
 
     }
 }

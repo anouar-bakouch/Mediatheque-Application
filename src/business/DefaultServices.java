@@ -23,7 +23,7 @@ public class DefaultServices implements Services{
         this.auteurDao = new AuteurDaoImp("resources/auteurs.xml");
     }
 
-    private static DefaultServices getInstance(){
+    public static DefaultServices getInstance(){
         if(instance == null){
             instance = new DefaultServices();
         }
