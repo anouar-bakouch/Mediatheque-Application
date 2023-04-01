@@ -1,7 +1,6 @@
 package presentation.view;
 
-import presentation.controller.AuteurCaseAction;
-
+import presentation.controller.PretCaseAction;
 import javax.swing.*;
 import java.awt.*;
 
@@ -35,7 +34,7 @@ public class PretView extends JFrame {
     private JPanel leftCenterPanel; // this is the panel that contains the labels
     private JPanel rightCenterPanel; // this is the panel that contains the text fields
 
-    public PretView(){
+    public PretView() {
 
         // initialize the text fields
 
@@ -103,7 +102,7 @@ public class PretView extends JFrame {
 
         // set the size of the combo box
 
-        auteurComboBox.setPreferredSize(new Dimension(300, 30));
+        pretsComboBox.setPreferredSize(new Dimension(300, 30));
 
         // add the panels to the frame
 
@@ -113,14 +112,14 @@ public class PretView extends JFrame {
 
         // add actions to the buttons
 
-        this.ajouterbtn.addActionListener(new AuteurCaseAction(this));
-        this.supprimerbtn.addActionListener(new AuteurCaseAction(this));
-        this.modifierbtn.addActionListener(new AuteurCaseAction(this));
-        this.cleanBtn.addActionListener(new AuteurCaseAction(this));
+        this.ajouterbtn.addActionListener(new PretCaseAction(this));
+        this.supprimerbtn.addActionListener(new PretCaseAction(this));
+        this.modifierbtn.addActionListener(new PretCaseAction(this));
+        this.cleanBtn.addActionListener(new PretCaseAction(this));
 
         // add actions to the combo box
 
-        this.auteurComboBox.addActionListener(new AuteurCaseAction(this));
+        this.pretsComboBox.addActionListener(new PretCaseAction(this));
 
         // set the frame properties
 
@@ -130,5 +129,59 @@ public class PretView extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-
     }
+
+    public JComboBox<String> getPretsComboBox() {
+        return pretsComboBox;
+    }
+
+    public JButton getAjouterbtn() {
+        return ajouterbtn;
+    }
+
+    public JButton getSupprimerbtn() {
+        return supprimerbtn;
+    }
+
+    public JButton getModifierbtn() {
+        return modifierbtn;
+    }
+
+    public JButton getCleanBtn() {
+        return cleanBtn;
+    }
+
+    public JTextField getIdTextField() {
+        return idTextField;
+    }
+
+    public JTextField getIdAdherentText() {
+        return idAdherentText;
+    }
+
+    public JTextField getDatePretText() {
+        return datePretText;
+    }
+
+    public JLabel getIdLabel() {
+        return idLabel;
+    }
+
+    public JLabel getIdAdherentLabel() {
+        return idAdherentLabel;
+    }
+
+    public JLabel getDatePretLabel() {
+        return datePretLabel;
+    }
+}
+
+
+
+
+
+
+
+
+
+
