@@ -15,9 +15,4 @@
     <prenom>t</prenom>
     <dateNaissance>t</dateNaissance>
   </auteur>
-  <auteur id="5">
-    <nom>B</nom>
-    <prenom>B</prenom>
-    <dateNaissance>B</dateNaissance>
-  </auteur>
 </auteurs>
