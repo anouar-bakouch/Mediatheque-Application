@@ -10,6 +10,7 @@ import org.jdom2.output.XMLOutputter;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PretDaoImp implements PretDao{
@@ -65,11 +66,25 @@ public class PretDaoImp implements PretDao{
     @Override
     public void modifierPret(Pret pret) {
 
+        List<Element> list = root.getChildren("pret");
+        for (Element d : list) {
+            if (Integer.parseInt(d.getChild("idOeuvre").getText()) == pret.getIdOeuvre()) {
+                d.getChild("idAdherent").setText(String.valueOf(pret.getIdAdherent()));
+                d.getChild("datePret").setText(pret.getDatePret());
+                save();
+            }
+        }
     }
 
     @Override
     public void supprimerPret(Pret pret) {
-
+            List<Element> list = root.getChildren("pret");
+            for (Element d : list) {
+                if (Integer.parseInt(d.getChild("idOeuvre").getText()) == pret.getIdOeuvre()) {
+                    root.removeContent(d);
+                    save();
+                }
+            }
     }
 
     @Override
@@ -89,7 +104,15 @@ public class PretDaoImp implements PretDao{
 
         @Override
         public List<Pret> getPrets () {
-            return null;
+            List<Pret> prets = new ArrayList<>();
+            List<Element> list = root.getChildren("pret");
+            for (Element e : list) {
+                Pret pret = null;
+                pret.setIdOeuvre(Integer.parseInt(e.getChild("idOeuvre").getText()));
+                pret.setIdAdherent(Integer.parseInt(e.getChild("idAdherent").getText()));
+                pret.setDatePret(e.getChild("datePret").getText());
+                prets.add(pret);
+            }
+            return prets;
         }
-
     }

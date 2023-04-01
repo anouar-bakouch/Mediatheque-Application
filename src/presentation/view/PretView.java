@@ -39,6 +39,7 @@ public class PretView extends JFrame {
         // initialize the text fields
 
         idTextField = new JTextField(23);
+        idTextField.setEditable(false);
         idAdherentText = new JTextField(23);
         datePretText = new JTextField(23);
 
