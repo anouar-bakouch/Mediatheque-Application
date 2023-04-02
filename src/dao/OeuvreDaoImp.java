@@ -93,8 +93,7 @@ public class OeuvreDaoImp implements OeuvreDao{
 
     @Override
     public void supprimerOeuvre(Oeuvre oeuvre) {
-
-        List<Element> oeuvres = root.getChildren("oeuvre");
+        List<Element> oeuvres = new ArrayList<>(root.getChildren("oeuvre")); // create a copy of the list
         for(Element el : oeuvres){
             if(Integer.parseInt(el.getAttributeValue("id")) == oeuvre.getId()){
                 root.removeContent(el);

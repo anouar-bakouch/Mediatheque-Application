@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AuteurDaoImp implements AuteurDao{
 
@@ -58,7 +59,6 @@ public class AuteurDaoImp implements AuteurDao{
         prenom.addContent(auteur.getPrenom());
         dateNaissance.addContent(auteur.getDateNaissance());
 
-
         e.addContent(nom);
         e.addContent(prenom);
         e.addContent(dateNaissance);
@@ -68,31 +68,23 @@ public class AuteurDaoImp implements AuteurDao{
 
     @Override
     public void supprimerAuteur(Auteur auteur) {
-        // synchronize access to racine element
-        synchronized (racine) {
-            // delete the author and all his works using the iterator's remove method
-            List<Element> list = racine.getChildren("auteur");
-            Iterator<Element> iterator = list.iterator();
-            while (iterator.hasNext()) {
-                Element d = iterator.next();
-                if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
-                    iterator.remove();
-                    save();
-                    break;
-                }
+        List<Element> elementsToRemove = new ArrayList<>();
+        List<Element> list = new ArrayList<>(racine.getChildren("auteur")); // create a copy of the list
+        for (Element d : list) {
+            if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
+                elementsToRemove.add(d);
             }
         }
-        OeuvreDao odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
-        // synchronize access to oeuvreDao
-        synchronized (odi) {
-            // delete all the author's works
-            List<Oeuvre> oeuvres = odi.getOeuvresParAuteur(auteur.getId());
-            for (Oeuvre oeuvre : oeuvres) {
-                odi.supprimerOeuvre(oeuvre);
-            }
+        elementsToRemove.forEach(racine::removeContent);
+        save();
+
+        // delete all the author's works
+        OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
+        List<Oeuvre> oeuvres = new ArrayList<>(odi.getOeuvresParAuteur(auteur.getId())); // create a copy of the list
+        for (Oeuvre oeuvre : oeuvres) {
+            odi.supprimerOeuvre(oeuvre);
         }
     }
-
 
     @Override
     public void modifierAuteur(Auteur auteur) {
