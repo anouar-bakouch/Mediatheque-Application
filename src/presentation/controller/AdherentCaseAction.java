@@ -56,10 +56,12 @@ public class AdherentCaseAction implements ActionListener {
                 jOptionPane.showMessageDialog(null, message, "Erreur", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                beans.Adherent adherent = new beans.Adherent(services.getAdherents().size()+1, adherentView.getNomTextField().getText(), adherentView.getPrenomTextField().getText(), adherentView.getAddresseTextField().getText(), adherentView.getEmailTextField().getText());
+                Adherent adherent = new Adherent(services.getAdherents().size()+1, adherentView.getNomTextField().getText(), adherentView.getPrenomTextField().getText(), adherentView.getAddresseTextField().getText(), adherentView.getEmailTextField().getText());
                 services.ajouterAdherent(adherent);
-                initComboBox();
-                initForm();
+                adherentView.getAdherentsComboBox().addItem(adherent.getNom());
+                adherentView.getAdherentsComboBox().setSelectedItem(adherent.getNom());
+                message = adherent.getNom()+" ajouté avec succès";
+                jOptionPane.showMessageDialog(null, message, "succès", JOptionPane.INFORMATION_MESSAGE);
             }
         }
 
@@ -87,6 +89,7 @@ public class AdherentCaseAction implements ActionListener {
                 this.message = "Adherent modifié avec succès";
                 jOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
                 initForm();
+                initComboBox();
             }
         }
 
@@ -101,17 +104,19 @@ public class AdherentCaseAction implements ActionListener {
                     services.supprimerAdherent(_adherent);
                     this.message = "Adherent supprimé avec succès";
                     jOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
+                    initComboBox();
                     initForm();
                 }
 
-                if(e.getSource()==adherentView.getCleanBtn()){
-                    adherentView.getEmailTextField().setText("");
-                    adherentView.getNomTextField().setText("");
-                    adherentView.getPrenomTextField().setText("");
-                    adherentView.getAddresseTextField().setText("");
-                    adherentView.getIdTextField().setText("");
-                    adherentView.getIdTextField().setEditable(true);
-                }
+        }
+
+        if(e.getSource()==adherentView.getCleanBtn()){
+            adherentView.getEmailTextField().setText("");
+            adherentView.getNomTextField().setText("");
+            adherentView.getPrenomTextField().setText("");
+            adherentView.getAddresseTextField().setText("");
+            adherentView.getIdTextField().setText("");
+            adherentView.getIdTextField().setEditable(true);
         }
 
     }

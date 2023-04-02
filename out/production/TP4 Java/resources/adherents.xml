@@ -4,12 +4,12 @@
     <nom>Smith Ali</nom>
     <prenom>Pak</prenom>
     <adresse>123 rue de la Paix Paris</adresse>
-    <email>@gmail.com</email>
+    <email>ali@gmail.com</email>
   </adherent>
-  <adherent id="2">
-    <nom>Sdracula -V</nom>
-    <prenom>John</prenom>
-    <adresse>123 rue de la Paix Paris</adresse>
-    <email>@gmail.com</email>
+  <adherent id="3">
+    <nom>bakouch</nom>
+    <prenom>anouar</prenom>
+    <adresse>fes</adresse>
+    <email>test</email>
   </adherent>
 </adherents>

@@ -92,6 +92,7 @@ public class OeuvreCaseAction implements ActionListener {
                     this.message = oeuvre.getTitre() + "modifiée avec succès";
                     jOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
                     initForm();
+                    initCombo();
                 }
             }
 
@@ -106,6 +107,7 @@ public class OeuvreCaseAction implements ActionListener {
                     jOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
                     oeuvreView.getOeuvreComboBox().removeItem(String.valueOf(oeuvre.getId()));
                     initForm();
+                    initCombo();
                 }
             }
 

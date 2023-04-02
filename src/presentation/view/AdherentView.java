@@ -205,4 +205,5 @@ public class AdherentView extends JFrame {
     public JLabel getEmailLabel() {
         return emailLabel;
     }
+
 }
