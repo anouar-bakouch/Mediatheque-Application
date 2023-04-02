@@ -108,6 +108,20 @@ public class AuteurCaseAction implements ActionListener {
             auteurView.getPrenomTextField().setText("");
             auteurView.getDateNaissanceTextField().setText("");
         }
-        
+
+        // changes related to the update button
+
+        if (e.getSource() == auteurView.getModifierbtn()) {
+            int id = Integer.parseInt(auteurView.getIdTextField().getText());
+            String nom = auteurView.getNomTextField().getText();
+            String prenom = auteurView.getPrenomTextField().getText();
+            String dateNaissance = auteurView.getDateNaissanceTextField().getText();
+            services.modifierAuteur(new Auteur(id, nom, prenom, dateNaissance));
+            // display a message to the user
+            this.message = "L'auteur " + nom + " a été modifié avec succès";
+            jOptionPane.showMessageDialog(null, message, "Modification d'un auteur", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
     }
 }

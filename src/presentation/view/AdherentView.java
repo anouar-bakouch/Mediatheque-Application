@@ -76,8 +76,14 @@ public class AdherentView extends JFrame {
         // set the layout of the panels
 
         topPanel.add(AdherentsComboBox, BorderLayout.CENTER);
-        leftCenterPanel = new JPanel(new GridLayout(4, 1));
-        rightCenterPanel = new JPanel(new GridLayout(4, 1));
+        leftCenterPanel = new JPanel(new GridLayout(5, 1));
+        rightCenterPanel = new JPanel(new GridLayout(5, 1));
+
+        // align these panels to be in same level of Y axis
+
+        leftCenterPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        rightCenterPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+
 
         // add the labels and text fields to the panels
 

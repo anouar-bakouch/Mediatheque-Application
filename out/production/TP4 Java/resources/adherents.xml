@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <adherents>
-     <adherent>
-          <nom>Smith</nom>
-          <prenom>John</prenom>
-          <adresse>123 rue de la Paix</adresse>
-          <email> @gmail.com </email>
-            <dateNaissance>01/01/1970</dateNaissance>
-        </adherent>
+  <adherent id="1">
+    <nom>Smith Ali</nom>
+    <prenom>Pak</prenom>
+    <adresse>123 rue de la Paix Paris</adresse>
+    <email>@gmail.com</email>
+  </adherent>
+  <adherent id="2">
+    <nom>Sdracula -V</nom>
+    <prenom>John</prenom>
+    <adresse>123 rue de la Paix Paris</adresse>
+    <email>@gmail.com</email>
+  </adherent>
 </adherents>

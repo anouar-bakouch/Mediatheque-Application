@@ -44,6 +44,7 @@ public class AdherentDaoImp implements AdherentDao {
     @Override
     public void ajouterAdherent(Adherent adherent) {
         Element e = new Element("adherent");
+        e.setAttribute("id", String.valueOf(adherent.getNumero()));
         Element nom = new Element("nom");
         Element prenom = new Element("prenom");
         Element adresse = new Element("adresse");
