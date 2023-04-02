@@ -68,28 +68,30 @@ public class AuteurDaoImp implements AuteurDao{
 
     @Override
     public void supprimerAuteur(Auteur auteur) {
-
-        // delete the author and all his works using the iterator's remove method
-        List<Element> list = racine.getChildren("auteur");
-        Iterator<Element> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            Element d = iterator.next();
-            if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
-                iterator.remove();
-                save();
-                break;
+        // synchronize access to racine element
+        synchronized (racine) {
+            // delete the author and all his works using the iterator's remove method
+            List<Element> list = racine.getChildren("auteur");
+            Iterator<Element> iterator = list.iterator();
+            while (iterator.hasNext()) {
+                Element d = iterator.next();
+                if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
+                    iterator.remove();
+                    save();
+                    break;
+                }
             }
         }
-
-        // delete all the author's works
-        OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
-        List<Oeuvre> oeuvres = odi.getOeuvresParAuteur(auteur.getId());
-        for (Oeuvre oeuvre : oeuvres) {
-            odi.supprimerOeuvre(oeuvre);
+        OeuvreDao odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
+        // synchronize access to oeuvreDao
+        synchronized (odi) {
+            // delete all the author's works
+            List<Oeuvre> oeuvres = odi.getOeuvresParAuteur(auteur.getId());
+            for (Oeuvre oeuvre : oeuvres) {
+                odi.supprimerOeuvre(oeuvre);
+            }
         }
     }
-
-
 
 
     @Override

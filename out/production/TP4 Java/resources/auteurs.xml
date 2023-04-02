@@ -11,15 +11,15 @@
     <dateNaissance>1900</dateNaissance>
   </auteur>
     <auteur id="4">
-        <nom>Alexandre Dumas</nom>
-        <prenom>Alexandre Dumas</prenom>
+        <nom>Dumas</nom>
+        <prenom>Alexandre</prenom>
         <dateNaissance>1802</dateNaissance>
     </auteur>
-  <auteur id="5">
-    <nom>Charles Dickens</nom>
-    <prenom>Charles John Huffam</prenom>
-    <dateNaissance>1812</dateNaissance>
-  </auteur>
+    <auteur id="5">
+        <nom>Charles Dickens</nom>
+        <prenom>Charles John Huffam</prenom>
+        <dateNaissance>1812</dateNaissance>
+    </auteur>
   <auteur id="6">
     <nom>Mark Twain</nom>
     <prenom>Samuel Langhorne Clemens</prenom>
