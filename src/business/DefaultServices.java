@@ -53,6 +53,16 @@ public class DefaultServices implements Services{
     }
 
     @Override
+    public List<Adherent> getAdherents() {
+        return this.adherentDao.getAdherents();
+    }
+
+    @Override
+    public Adherent getAdherent(String nom) {
+        return this.adherentDao.getAdherent(nom);
+    }
+
+    @Override
     public void ajouterAuteur(Auteur auteur) {
         this.auteurDao.ajouterAuteur(auteur);
     }

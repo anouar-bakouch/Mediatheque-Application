@@ -85,7 +85,6 @@ public class AuteurCaseAction implements ActionListener {
             auteurView.getNomTextField().setText(auteur.getNom());
             auteurView.getPrenomTextField().setText(auteur.getPrenom());
             auteurView.getDateNaissanceTextField().setText(auteur.getDateNaissance());
-
         }
 
         // changes related to the delete button
@@ -109,7 +108,6 @@ public class AuteurCaseAction implements ActionListener {
             auteurView.getPrenomTextField().setText("");
             auteurView.getDateNaissanceTextField().setText("");
         }
-
-
+        
     }
 }

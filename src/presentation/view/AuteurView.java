@@ -33,7 +33,6 @@ public class AuteurView extends JFrame {
     private JPanel topPanel; // this is the panel that contains the combo box
     private JPanel centerPanel; // this is the panel that contains the text fields
     private JPanel bottomPanel; // this is the panel that contains the buttons
-
     private JPanel leftCenterPanel; // this is the panel that contains the labels
     private JPanel rightCenterPanel; // this is the panel that contains the text fields
 

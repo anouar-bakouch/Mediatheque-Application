@@ -1,67 +1,202 @@
 package presentation.view;
 
+import presentation.controller.AdherentCaseAction;
+import presentation.controller.AuteurCaseAction;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class AdherentView extends JFrame {
 
-    private JTextField txtId;
-    private JTextField txtNom;
-    private JTextField txtPrenom;
-    private JTextField txtAdresse;
-    private JTextField txtEmail;
 
-    private JButton btnAjouter;
-    private JButton btnModifier;
-    private JButton btnSupprimer;
-    private JButton btnRechercher;
-    private JButton btnQuitter;
+    private JComboBox<String> AdherentsComboBox;
+    private JButton ajouterbtn;
+    private JButton supprimerbtn;
+    private JButton modifierbtn;
+    private JButton cleanBtn;
 
-    private JTable table;
-    private JScrollPane scrollPane;
+    // Text Fields
 
-    // 2 panes top
-    private JPanel paneTop;
-    private JPanel paneCenter;
-    private JPanel paneBottom;
-    private JPanel paneleft;
-    private JPanel paneRight;
-    // 1 pane bottom
+    private JTextField idTextField;
+    private JTextField nomTextField;
+    private JTextField prenomTextField;
+    private JTextField addresseTextField;
+    private JTextField emailTextField;
 
-    public AdherentView() {
+    // labels
 
-        this.txtId = new JTextField();
-        this.txtNom = new JTextField();
-        this.txtPrenom = new JTextField();
-        this.txtEmail = new JTextField();
-        this.txtAdresse = new JTextField();
+    private JLabel idLabel;
+    private JLabel nomLabel;
+    private JLabel prenomLabel;
+    private JLabel adresseLabel;
+    private JLabel emailLabel;
 
-        this.paneleft = new JPanel();
-        this.paneCenter = new JPanel();
-        this.paneRight = new JPanel();
-        this.paneBottom = new JPanel();
+    // panels
 
-        this.btnAjouter = new JButton("Ajouter un adhérent");
-        this.btnModifier = new JButton("Modifier un adhérent");
-        this.btnSupprimer = new JButton("Supprimer un adhérent");
-        this.btnRechercher = new JButton("Rechercher un adhérent");
-        this.btnQuitter = new JButton("Quitter");
+    private JPanel topPanel; // this is the panel that contains the combo box
+    private JPanel centerPanel; // this is the panel that contains the text fields
+    private JPanel bottomPanel; // this is the panel that contains the buttons
+    private JPanel leftCenterPanel; // this is the panel that contains the labels
+    private JPanel rightCenterPanel; // this is the panel that contains the text fields
 
-        this.table = new JTable();
-        this.scrollPane = new JScrollPane(table);
+    public AdherentView(){
 
-        this.paneleft.setLayout(new BoxLayout(paneleft, BoxLayout.Y_AXIS));
-        this.paneleft.add(txtId);
-        this.paneleft.add(txtNom);
-        this.paneleft.add(txtPrenom);
-        this.paneleft.add(txtEmail);
-        this.paneleft.add(txtAdresse);
+        // initialize the text fields
 
+        idTextField = new JTextField(23);
+        idTextField.setEditable(false);
+        nomTextField = new JTextField(23);
+        prenomTextField = new JTextField(23);
+        addresseTextField = new JTextField(23);
+        emailTextField = new JTextField(23);
+        // initialize the labels
 
-        this.setTitle("Adhrenet");
+        idLabel = new JLabel("ID");
+        nomLabel = new JLabel("Nom");
+        prenomLabel = new JLabel("Prenom");
+        adresseLabel = new JLabel("Adresse");
+        emailLabel = new JLabel("Email");
+        // initialize the buttons
+
+        ajouterbtn = new JButton("Ajouter");
+        supprimerbtn = new JButton("Supprimer");
+        modifierbtn = new JButton("Modifier");
+        cleanBtn = new JButton("Vider");
+
+        // initialize the combo box
+
+        AdherentsComboBox = new JComboBox<>();
+
+        // initialize the panels
+
+        topPanel = new JPanel();
+        centerPanel = new JPanel();
+        bottomPanel = new JPanel();
+
+        // set the layout of the panels
+
+        topPanel.add(AdherentsComboBox, BorderLayout.CENTER);
+        leftCenterPanel = new JPanel(new GridLayout(4, 1));
+        rightCenterPanel = new JPanel(new GridLayout(4, 1));
+
+        // add the labels and text fields to the panels
+
+        leftCenterPanel.add(idLabel);
+        leftCenterPanel.add(nomLabel);
+        leftCenterPanel.add(prenomLabel);
+        leftCenterPanel.add(adresseLabel);
+        leftCenterPanel.add(emailLabel);
+
+        rightCenterPanel.add(idTextField);
+        rightCenterPanel.add(nomTextField);
+        rightCenterPanel.add(prenomTextField);
+        rightCenterPanel.add(addresseTextField);
+        rightCenterPanel.add(emailTextField);
+        // add the panels to the center panel
+
+        centerPanel.add(leftCenterPanel, BorderLayout.WEST);
+        centerPanel.add(rightCenterPanel, BorderLayout.EAST);
+
+        // add the buttons to the bottom panel
+
+        bottomPanel.add(ajouterbtn);
+        bottomPanel.add(supprimerbtn);
+        bottomPanel.add(modifierbtn);
+        bottomPanel.add(cleanBtn);
+
+        // set the size of the panels
+
+        topPanel.setPreferredSize(new Dimension(400, 50));
+        centerPanel.setPreferredSize(new Dimension(400, 150));
+        bottomPanel.setPreferredSize(new Dimension(400, 50));
+
+        // set the size of the combo box
+
+        AdherentsComboBox.setPreferredSize(new Dimension(300, 30));
+
+        // add the panels to the frame
+
+        this.add(topPanel, BorderLayout.NORTH);
+        this.add(centerPanel, BorderLayout.CENTER);
+        this.add(bottomPanel, BorderLayout.SOUTH);
+
+        // add actions to the buttons
+
+        this.ajouterbtn.addActionListener(new AdherentCaseAction(this));
+        this.supprimerbtn.addActionListener(new AdherentCaseAction(this));
+        this.modifierbtn.addActionListener(new AdherentCaseAction(this));
+        this.cleanBtn.addActionListener(new AdherentCaseAction(this));
+
+        // add actions to the combo box
+
+        this.AdherentsComboBox.addActionListener(new AdherentCaseAction(this));
+
+        // set the frame properties
+
+        this.setTitle("Adherent");
         this.setSize(400, 300);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // so it won"t close the whole application
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        this.setVisible(true);
     }
 
+    public JComboBox<String> getAdherentsComboBox() {
+        return AdherentsComboBox;
+    }
+
+    public JButton getAjouterbtn() {
+        return ajouterbtn;
+    }
+
+    public JButton getSupprimerbtn() {
+        return supprimerbtn;
+    }
+
+    public JButton getModifierbtn() {
+        return modifierbtn;
+    }
+
+    public JButton getCleanBtn() {
+        return cleanBtn;
+    }
+
+    public JTextField getIdTextField() {
+        return idTextField;
+    }
+
+    public JTextField getNomTextField() {
+        return nomTextField;
+    }
+
+    public JTextField getPrenomTextField() {
+        return prenomTextField;
+    }
+
+    public JTextField getAddresseTextField() {
+        return addresseTextField;
+    }
+
+    public JTextField getEmailTextField() {
+        return emailTextField;
+    }
+
+    public JLabel getIdLabel() {
+        return idLabel;
+    }
+
+    public JLabel getNomLabel() {
+        return nomLabel;
+    }
+
+    public JLabel getPrenomLabel() {
+        return prenomLabel;
+    }
+
+    public JLabel getAdresseLabel() {
+        return adresseLabel;
+    }
+
+    public JLabel getEmailLabel() {
+        return emailLabel;
+    }
 }
