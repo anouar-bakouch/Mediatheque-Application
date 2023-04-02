@@ -47,7 +47,7 @@ public class PretDaoImp implements PretDao{
     public void ajouterPret(Pret pret) {
 
         Element e = new Element("pret");
-        e.setAttribute("id", String.valueOf(pret.getIdAdherent()+" "+pret.getIdOeuvre()));
+        e.setAttribute("id", String.valueOf(pret.getIdAdherent()+"-"+pret.getIdOeuvre()));
         Element idOeuvre = new Element("idOeuvre");
         Element idAdherent = new Element("idAdherent");
         Element datePret = new Element("datePret");
@@ -88,20 +88,21 @@ public class PretDaoImp implements PretDao{
     }
 
     @Override
-    public Pret rechercherPret(int id) {
+    public Pret rechercherPret(int idOeuvre, int idAdherent) {
         List<Element> list = root.getChildren("pret");
         for (Element d : list) {
-            if (Integer.parseInt(d.getChild("idOeuvre").getText()) == id) {
-                int idOeuvre = Integer.parseInt(d.getChild("idOeuvre").getText());
-                int idAdherent = Integer.parseInt(d.getChild("idAdherent").getText());
-                String datePret = d.getChild("datePret").getText();
-                return new Pret(idOeuvre,idAdherent,datePret);
+           String idPret = idOeuvre+"-"+idAdherent;
+            if (d.getAttributeValue("id").equals(idPret)) {
+                int idOeuvre1 = Integer.parseInt(d.getChild("idOeuvre").getText());
+                int idAdherent1 = Integer.parseInt(d.getChild("idAdherent").getText());
+                String datePret = String.valueOf(d.getChild("datePret").getText());
+                return new Pret(idOeuvre1,idAdherent1,datePret);
             }
         }
         return null;
     }
 
-        @Override
+    @Override
         public List<Pret> getPrets () {
             List<Pret> list = new ArrayList<Pret>();
             List<Element> elements = root.getChildren("pret");

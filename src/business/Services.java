@@ -33,6 +33,6 @@ public interface Services {
     public void ajouterPret(Pret pret);
     public void modifierPret(Pret pret);
     public void supprimerPret(Pret pret);
-    public Pret rechercherPret(int id);
+    public Pret rechercherPret(int idOeuvre, int idAdherent);
     public List<Pret> getPrets();
 }

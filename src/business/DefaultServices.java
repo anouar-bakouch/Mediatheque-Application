@@ -135,8 +135,8 @@ public class DefaultServices implements Services{
     }
 
     @Override
-    public Pret rechercherPret(int id) {
-        return null;
+    public Pret rechercherPret(int idOeuvre, int idAdherent) {
+        return this.pretDao.rechercherPret(idOeuvre, idAdherent);
     }
 
     @Override

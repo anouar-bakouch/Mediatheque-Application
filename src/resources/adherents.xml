@@ -9,13 +9,6 @@
 
     <adherent id="2">
         <nom>bakouch</nom>
-        <prenom>anouar</prenom>
-        <adresse>123 rue de la Paix Paris</adresse>
-        <email>anouar.bakouch@email.com</email>
-    </adherent>
-
-    <adherent id="3">
-        <nom>bakouch</nom>
         <prenom>hamza</prenom>
         <adresse>123 rue de la Paix Paris</adresse>
         <email>hamza.bakouch@email.com</email>

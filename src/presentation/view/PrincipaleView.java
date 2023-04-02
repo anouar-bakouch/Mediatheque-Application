@@ -20,6 +20,8 @@ public class PrincipaleView extends JFrame{
     private JLabel imageLabel;
     private ImageIcon image;
 
+    // icon for the main view
+    private ImageIcon icon;
 
     public PrincipaleView(){
 
@@ -54,6 +56,10 @@ public class PrincipaleView extends JFrame{
         this.image = new ImageIcon(Constants.ImagePath);
         this.imageLabel = new JLabel(image);
         this.pan.add(imageLabel, BorderLayout.CENTER);
+
+        // icon for the main view
+        this.icon = new ImageIcon(Constants.IconPath);
+        this.setIconImage(icon.getImage());
 
         this.pan.setSize(300, 300);
         this.add(pan, BorderLayout.CENTER);
