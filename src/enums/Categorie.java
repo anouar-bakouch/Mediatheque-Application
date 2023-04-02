@@ -3,5 +3,7 @@ package enums;
 public enum Categorie {
     Art,
     Science,
-    Fiction
+    Fiction,
+    peinture,
+    drama
 }

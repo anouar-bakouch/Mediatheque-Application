@@ -11,7 +11,7 @@
     <dateNaissance>test</dateNaissance>
   </auteur>
   <auteur id="4">
-    <nom>test</nom>
+    <nom>albert camus</nom>
     <prenom>t</prenom>
     <dateNaissance>t</dateNaissance>
   </auteur>

@@ -69,8 +69,8 @@ public class OeuvreView extends JFrame {
         // initialize the labels
 
         idLabel = new JLabel("ID");
-        titreLabel = new JLabel("Nom");
-        categorieLabel = new JLabel("Prenom");
+        titreLabel = new JLabel("titre");
+        categorieLabel = new JLabel("categorie");
         editeurLabel = new JLabel("Editeur");
         anneeSortieLabel = new JLabel("Annee de sortie");
         statutLabel = new JLabel("Statut");

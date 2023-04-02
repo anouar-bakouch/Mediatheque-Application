@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <oeuvres>
-    <oeuvre id="1">
-        <titre>La Joconde</titre>
-        <categorie>peinture</categorie>
-        <editeur>geneve</editeur>
-        <anneeSortie>1853</anneeSortie>
-        <auteur>leonardo da vinci</auteur>
-        <statut>true</statut>
-    </oeuvre>
-
+  <oeuvre id="1">
+    <titre>La Joconde</titre>
+    <categorie>peinture</categorie>
+    <editeur>geneve</editeur>
+    <anneeSortie>1853</anneeSortie>
+    <auteur idAuteur="3" />
+    <statut>true</statut>
+  </oeuvre>
+  <oeuvre id="2">
+    <titre>l'etranger</titre>
+    <categorie>drama</categorie>
+    <editeur>france</editeur>
+    <anneeSortie>1983</anneeSortie>
+    <auteur idAuteur="4" />
+    <statut>false</statut>
+  </oeuvre>
+  <oeuvre id="3">
+    <titre>learn Java with Me</titre>
+    <categorie>peinture</categorie>
+    <editeur>USA</editeur>
+    <anneeSortie>2023</anneeSortie>
+    <auteur idAuteur="2" />
+    <statut>true</statut>
+  </oeuvre>
 </oeuvres>

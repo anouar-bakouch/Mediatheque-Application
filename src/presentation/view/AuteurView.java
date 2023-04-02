@@ -135,7 +135,6 @@ public class AuteurView extends JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // so it won"t close the whole application
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-
     }
 
     public JComboBox<String> getAuteurComboBox() {
