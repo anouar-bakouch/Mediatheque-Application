@@ -34,11 +34,13 @@ public class PretCaseAction implements ActionListener {
         }
 
         if(e.getSource() == pretView.getPretsComboBox()){
-            int idOeuvre = Integer.parseInt(pretView.getPretsComboBox().getSelectedItem().toString());
-            Pret pret = services.rechercherPret(idOeuvre);
+            String idO = (String) pretView.getPretsComboBox().getSelectedItem();
+            int idOeuvre = Integer.parseInt(idO.split(" ")[1]);
+            System.out.println(idOeuvre);
+            Pret pret = services.rechercherPret(Integer.parseInt(idO));
             pretView.getIdTextField().setText(String.valueOf(pret.getIdOeuvre()));
             pretView.getIdAdherentText().setText(String.valueOf(pret.getIdAdherent()));
-            pretView.getDatePretText().setText(pret.getDatePret());
+            pretView.getDatePretText().setText(String.valueOf(pret.getDatePret()));
             pretView.getIdTextField().setEditable(false);
         }
 
@@ -64,7 +66,7 @@ public class PretCaseAction implements ActionListener {
     private void initCombo(){
         pretView.getPretsComboBox().removeAllItems();
         for (Pret pret : services.getPrets()) {
-            pretView.getPretsComboBox().addItem(String.valueOf(pret.getIdOeuvre()));
+            pretView.getPretsComboBox().addItem(String.valueOf(pret.getIdAdherent()+" "+pret.getIdOeuvre()));
         }
     }
 

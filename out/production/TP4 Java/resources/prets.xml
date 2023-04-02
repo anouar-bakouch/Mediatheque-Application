@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <prets>
-  <pret id="11">
+  <pret id="1 1">
     <idAdherent>1</idAdherent>
     <idOeuvre>1</idOeuvre>
     <datePret>2022</datePret>
   </pret>
-    <pret id="12">
+    <pret id="1 2">
         <idAdherent>1</idAdherent>
         <idOeuvre>2</idOeuvre>
         <datePret>2022</datePret>
     </pret>
-    <pret id="13">
+    <pret id="1 3">
         <idAdherent>1</idAdherent>
         <idOeuvre>3</idOeuvre>
         <datePret>2022</datePret>

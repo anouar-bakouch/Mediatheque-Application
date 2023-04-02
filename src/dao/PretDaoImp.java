@@ -47,7 +47,7 @@ public class PretDaoImp implements PretDao{
     public void ajouterPret(Pret pret) {
 
         Element e = new Element("pret");
-        e.setAttribute("id", String.valueOf(pret.getIdOeuvre()+pret.getIdAdherent()));
+        e.setAttribute("id", String.valueOf(pret.getIdAdherent()+" "+pret.getIdOeuvre()));
         Element idOeuvre = new Element("idOeuvre");
         Element idAdherent = new Element("idAdherent");
         Element datePret = new Element("datePret");
@@ -90,12 +90,12 @@ public class PretDaoImp implements PretDao{
     @Override
     public Pret rechercherPret(int id) {
         List<Element> list = root.getChildren("pret");
-        for (Element e : list) {
-            int x_id = Integer.parseInt(e.getChild("idOeuvre").getText().toString());
-            if ( x_id == id ) {
-                int IdAdherent = Integer.parseInt(e.getChild("idAdherent").getText());
-                String DatePret = e.getChild("datePret").getText();
-                return new Pret(id,IdAdherent,DatePret);
+        for (Element d : list) {
+            if (Integer.parseInt(d.getChild("idOeuvre").getText()) == id) {
+                int idOeuvre = Integer.parseInt(d.getChild("idOeuvre").getText());
+                int idAdherent = Integer.parseInt(d.getChild("idAdherent").getText());
+                String datePret = d.getChild("datePret").getText();
+                return new Pret(idOeuvre,idAdherent,datePret);
             }
         }
         return null;
@@ -103,14 +103,14 @@ public class PretDaoImp implements PretDao{
 
         @Override
         public List<Pret> getPrets () {
-            List<Pret> prets = new ArrayList<>();
-            List<Element> list = root.getChildren("pret");
-            for (Element e : list) {
+            List<Pret> list = new ArrayList<Pret>();
+            List<Element> elements = root.getChildren("pret");
+            for (Element e : elements) {
                 int idOeuvre = Integer.parseInt(e.getChild("idOeuvre").getText());
                 int idAdherent = Integer.parseInt(e.getChild("idAdherent").getText());
-                String DatePret = e.getChild("datePret").getText();
-                prets.add(new Pret(idOeuvre,idAdherent,DatePret));
+                String datePret = e.getChild("datePret").getText();
+                list.add(new Pret(idOeuvre,idAdherent,datePret));
             }
-            return prets;
+            return list;
         }
     }
