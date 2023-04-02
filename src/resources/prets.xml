@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <prets>
-  <pret>
+  <pret id="11">
+    <idAdherent>1</idAdherent>
     <idOeuvre>1</idOeuvre>
-    <idAdherent>2</idAdherent>
-    <datePret>2023</datePret>
+    <datePret>2022</datePret>
   </pret>
-  <pret>
-    <idOeuvre>2</idOeuvre>
-    <idAdherent>3</idAdherent>
-    <datePret>2019</datePret>
-  </pret>
-  <pret>
-    <idOeuvre>7</idOeuvre>
-    <idAdherent>3</idAdherent>
-    <datePret>2018</datePret>
-  </pret>
+    <pret id="12">
+        <idAdherent>1</idAdherent>
+        <idOeuvre>2</idOeuvre>
+        <datePret>2022</datePret>
+    </pret>
+    <pret id="13">
+        <idAdherent>1</idAdherent>
+        <idOeuvre>3</idOeuvre>
+        <datePret>2022</datePret>
+    </pret>
 </prets>

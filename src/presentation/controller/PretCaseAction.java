@@ -27,6 +27,7 @@ public class PretCaseAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if(e.getSource()==pretView.getAjouterbtn()){
             Pret pret = new Pret(Integer.parseInt(pretView.getIdAdherentText().getText()), Integer.parseInt(pretView.getIdTextField().getText()), pretView.getDatePretText().getText());
             services.ajouterPret(pret);
@@ -34,11 +35,11 @@ public class PretCaseAction implements ActionListener {
 
         if(e.getSource() == pretView.getPretsComboBox()){
             int idOeuvre = Integer.parseInt(pretView.getPretsComboBox().getSelectedItem().toString());
-            System.out.println(idOeuvre);
             Pret pret = services.rechercherPret(idOeuvre);
             pretView.getIdTextField().setText(String.valueOf(pret.getIdOeuvre()));
             pretView.getIdAdherentText().setText(String.valueOf(pret.getIdAdherent()));
             pretView.getDatePretText().setText(pret.getDatePret());
+            pretView.getIdTextField().setEditable(false);
         }
 
         if(e.getSource() == pretView.getAjouterbtn()){
@@ -51,15 +52,12 @@ public class PretCaseAction implements ActionListener {
             this.message = "le pret avec l\'id "+idO+"";
             jOptionPane.showMessageDialog(null, message, "Ajout d'un pret", JOptionPane.INFORMATION_MESSAGE);
         }
-
         if(e.getSource()==pretView.getCleanBtn()){
             pretView.getIdAdherentText().setText("");
             pretView.getDatePretText().setText("");
             pretView.getIdTextField().setText("");
             pretView.getIdTextField().setEditable(true);
         }
-
-
 
     }
 

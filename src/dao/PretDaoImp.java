@@ -47,6 +47,7 @@ public class PretDaoImp implements PretDao{
     public void ajouterPret(Pret pret) {
 
         Element e = new Element("pret");
+        e.setAttribute("id", String.valueOf(pret.getIdOeuvre()+pret.getIdAdherent()));
         Element idOeuvre = new Element("idOeuvre");
         Element idAdherent = new Element("idAdherent");
         Element datePret = new Element("datePret");

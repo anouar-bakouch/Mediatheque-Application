@@ -95,7 +95,6 @@ public class AdherentCaseAction implements ActionListener {
 
 
             if(e.getSource()==adherentView.getSupprimerbtn()){
-                // use JoptionConfirm
                 int indice = adherentView.getAdherentsComboBox().getSelectedIndex();
                 Adherent _adherent = new beans.Adherent(services.getAdherents().get(indice).getNumero(), adherentView.getNomTextField().getText(), adherentView.getPrenomTextField().getText(), adherentView.getAddresseTextField().getText(), adherentView.getEmailTextField().getText());
                 this.message = "Voulez-vous vraiment supprimer cet adherent ?";
@@ -104,10 +103,8 @@ public class AdherentCaseAction implements ActionListener {
                     services.supprimerAdherent(_adherent);
                     this.message = "Adherent supprimé avec succès";
                     jOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
-                    initComboBox();
-                    initForm();
+                    adherentView.getAdherentsComboBox().removeItem(_adherent.getNom());
                 }
-
         }
 
         if(e.getSource()==adherentView.getCleanBtn()){

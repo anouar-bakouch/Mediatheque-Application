@@ -1,11 +1,13 @@
 package dao;
 
 import beans.Auteur;
+import beans.Oeuvre;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import utils.Constants;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -65,14 +67,22 @@ public class AuteurDaoImp implements AuteurDao{
 
     @Override
     public void supprimerAuteur(Auteur auteur) {
+
         List<Element> list = racine.getChildren("auteur");
         for (Element d : list) {
             if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
+                // delete all the works of the author
+                OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
+                List<Oeuvre> oeuvres = getOeuvres(auteur);
+                for (Oeuvre oeuvre : oeuvres) {
+                    odi.supprimerOeuvre(oeuvre);
+                }
                 racine.removeContent(d);
                 save();
                 break;
             }
         }
+
     }
 
     @Override
@@ -121,4 +131,18 @@ public class AuteurDaoImp implements AuteurDao{
         }
         return auteurs;
     }
+
+    @Override
+    public List<Oeuvre> getOeuvres(Auteur auteur) {
+        List<Oeuvre> oeuvres = new ArrayList<Oeuvre>();
+        OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
+        List<Oeuvre> list = odi.getOeuvres();
+        for (Oeuvre o : list) {
+            if (o.getAuteur().getId() == auteur.getId()) {
+                oeuvres.add(o);
+            }
+        }
+        return oeuvres;
+    }
+
 }

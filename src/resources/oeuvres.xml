@@ -1,27 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <oeuvres>
+
   <oeuvre id="1">
-    <titre>La Joconde</titre>
-    <categorie>peinture</categorie>
-    <editeur>geneve</editeur>
-    <anneeSortie>1853</anneeSortie>
-    <auteur idAuteur="3" />
-    <statut>true</statut>
+      <titre>le petit prince</titre>
+     <categorie>roman</categorie>
+      <editeur>gallimard</editeur>
+      <anneeSortie>1943</anneeSortie>
+      <auteur idAuteur="3"/>
+      <statut>true</statut>
   </oeuvre>
-  <oeuvre id="2">
-    <titre>l'etranger</titre>
-    <categorie>drama</categorie>
-    <editeur>france</editeur>
-    <anneeSortie>1983</anneeSortie>
-    <auteur idAuteur="4" />
-    <statut>false</statut>
-  </oeuvre>
-  <oeuvre id="3">
-    <titre>learn Java with Me</titre>
-    <categorie>peinture</categorie>
-    <editeur>USA</editeur>
-    <anneeSortie>2023</anneeSortie>
-    <auteur idAuteur="2" />
-    <statut>true</statut>
-  </oeuvre>
+
+    <oeuvre id="2">
+      <titre>le seigneur des anneaux</titre>
+      <categorie>roman</categorie>
+      <editeur>gallimard</editeur>
+      <anneeSortie>1954</anneeSortie>
+      <auteur idAuteur="1"/>
+      <statut>true</statut>
+    </oeuvre>
+
+    <oeuvre id="3">
+        <titre>le hobbit</titre>
+        <categorie>roman</categorie>
+        <editeur>gallimard</editeur>
+        <anneeSortie>1937</anneeSortie>
+        <auteur idAuteur="1"/>
+        <statut>true</statut>
+    </oeuvre>
+
+    <oeuvre id="4">
+        <titre>le silmarillion</titre>
+        <categorie>roman</categorie>
+        <editeur>gallimard</editeur>
+        <anneeSortie>1977</anneeSortie>
+        <auteur idAuteur="1"/>
+        <statut>true</statut>
+    </oeuvre>
+
+    <oeuvre id="5">
+        <titre>les misérables</titre>
+        <categorie>roman</categorie>
+        <editeur>gallimard</editeur>
+        <anneeSortie>1862</anneeSortie>
+        <auteur idAuteur="4"/>
+        <statut>true</statut>
+    </oeuvre>
+
+    <oeuvre id="6">
+        <titre>oliver twist</titre>
+        <categorie>roman</categorie>
+        <editeur>gallimard</editeur>
+        <anneeSortie>1837</anneeSortie>
+        <auteur idAuteur="5"/>
+        <statut>true</statut>
+    </oeuvre>
+
+    <oeuvre id="7">
+        <titre>le tour du monde en 80 jours</titre>
+        <categorie>roman</categorie>
+        <editeur>gallimard</editeur>
+        <anneeSortie>1873</anneeSortie>
+        <auteur idAuteur="6"/>
+        <statut>true</statut>
+    </oeuvre>
+
+    <oeuvre id="8">
+        <titre>le chat du rabbin</titre>
+        <categorie>roman</categorie>
+        <editeur>gallimard</editeur>
+        <anneeSortie>1981</anneeSortie>
+        <auteur idAuteur="6"/>
+        <statut>true</statut>
+    </oeuvre>
+
 </oeuvres>
+

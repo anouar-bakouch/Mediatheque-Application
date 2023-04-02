@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <auteurs>
-  <auteur id="2">
-    <nom>friend</nom>
-    <prenom>hamza</prenom>
-    <dateNaissance>2003</dateNaissance>
-  </auteur>
-  <auteur id="3">
-    <nom>leonardo da vinci</nom>
-    <prenom>test</prenom>
-    <dateNaissance>test</dateNaissance>
-  </auteur>
-  <auteur id="4">
-    <nom>albert camus</nom>
-    <prenom>t</prenom>
-    <dateNaissance>t</dateNaissance>
-  </auteur>
+
+    <auteur id="1">
+        <nom>J.R.R. Tolkien</nom>
+        <prenom>John Ronald Reuel</prenom>
+        <dateNaissance>1892</dateNaissance>
+    </auteur>
+
+    <auteur id="3">
+        <nom>Antoine de Saint-Exupéry</nom>
+        <prenom>Antoine Marie Jean-Baptiste Roger</prenom>
+        <dateNaissance>1900</dateNaissance>
+    </auteur>
+
+    <auteur id="4">
+        <nom>Victor Hugo</nom>
+        <prenom>Victor Marie</prenom>
+        <dateNaissance>1802</dateNaissance>
+    </auteur>
+
+    <auteur id="5">
+        <nom>Charles Dickens</nom>
+        <prenom>Charles John Huffam</prenom>
+        <dateNaissance>1812</dateNaissance>
+    </auteur>
+
+    <auteur id="6">
+        <nom>Mark Twain</nom>
+        <prenom>Samuel Langhorne Clemens</prenom>
+        <dateNaissance>1835</dateNaissance>
+    </auteur>
+
 </auteurs>
+

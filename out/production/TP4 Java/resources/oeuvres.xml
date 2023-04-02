@@ -16,12 +16,5 @@
     <auteur idAuteur="4" />
     <statut>false</statut>
   </oeuvre>
-  <oeuvre id="3">
-    <titre>learn Java with Me</titre>
-    <categorie>peinture</categorie>
-    <editeur>USA</editeur>
-    <anneeSortie>2023</anneeSortie>
-    <auteur idAuteur="2" />
-    <statut>true</statut>
-  </oeuvre>
+
 </oeuvres>
