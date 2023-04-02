@@ -12,6 +12,7 @@ import utils.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AuteurDaoImp implements AuteurDao{
@@ -68,22 +69,28 @@ public class AuteurDaoImp implements AuteurDao{
     @Override
     public void supprimerAuteur(Auteur auteur) {
 
+        // delete the author and all his works using the iterator's remove method
         List<Element> list = racine.getChildren("auteur");
-        for (Element d : list) {
+        Iterator<Element> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Element d = iterator.next();
             if (Integer.parseInt(d.getAttributeValue("id")) == auteur.getId()) {
-                // delete all the works of the author
-                OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
-                List<Oeuvre> oeuvres = getOeuvres(auteur);
-                for (Oeuvre oeuvre : oeuvres) {
-                    odi.supprimerOeuvre(oeuvre);
-                }
-                racine.removeContent(d);
+                iterator.remove();
                 save();
                 break;
             }
         }
 
+        // delete all the author's works
+        OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
+        List<Oeuvre> oeuvres = odi.getOeuvresParAuteur(auteur.getId());
+        for (Oeuvre oeuvre : oeuvres) {
+            odi.supprimerOeuvre(oeuvre);
+        }
     }
+
+
+
 
     @Override
     public void modifierAuteur(Auteur auteur) {
@@ -132,17 +139,6 @@ public class AuteurDaoImp implements AuteurDao{
         return auteurs;
     }
 
-    @Override
-    public List<Oeuvre> getOeuvres(Auteur auteur) {
-        List<Oeuvre> oeuvres = new ArrayList<Oeuvre>();
-        OeuvreDaoImp odi = new OeuvreDaoImp(Constants.OEUVRE_FILE);
-        List<Oeuvre> list = odi.getOeuvres();
-        for (Oeuvre o : list) {
-            if (o.getAuteur().getId() == auteur.getId()) {
-                oeuvres.add(o);
-            }
-        }
-        return oeuvres;
-    }
+
 
 }

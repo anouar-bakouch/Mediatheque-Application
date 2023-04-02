@@ -12,4 +12,6 @@ public interface OeuvreDao {
     public Oeuvre getOeuvre(int id);
     public List<Oeuvre> getOeuvres();
 
+    public List<Oeuvre> getOeuvresParAuteur(int idAuteur);
+
 }

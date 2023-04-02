@@ -122,22 +122,37 @@ public class OeuvreDaoImp implements OeuvreDao{
 
     @Override
     public List<Oeuvre> getOeuvres() {
+
         List<Oeuvre> oeuvres = new ArrayList<>();
-        List<Element> e = root.getChildren("oeuvre");
-        for(Element oeuvre : e){
-            int idAuteur = Integer.parseInt(oeuvre.getChild("auteur").getAttributeValue("idAuteur"));
-            Auteur auteur = new AuteurDaoImp(Constants.AUTEUR_FILE).rechercherAuteur(idAuteur);
-            Categorie categorie = Categorie.valueOf(oeuvre.getChildText("categorie"));
-            oeuvres.add(new Oeuvre(
-                    Integer.parseInt(oeuvre.getAttributeValue("id")),
-                    oeuvre.getChildText("titre"),
-                    categorie,
-                    auteur,
-                    oeuvre.getChildText("editeur"),
-                    Integer.parseInt(oeuvre.getChildText("anneeSortie")),
-                    Boolean.valueOf(oeuvre.getChildText("status"))
-            ));
+        List<Element> list = root.getChildren("oeuvre");
+
+        for(Element x : list){
+            int id = Integer.parseInt(x.getAttributeValue("id"));
+            int aut_id = Integer.parseInt(x.getChild("auteur").getAttributeValue("idAuteur"));
+            Auteur auteur = new AuteurDaoImp(Constants.AUTEUR_FILE).rechercherAuteur(aut_id);
+            oeuvres.add(new Oeuvre(id,x.getChildText("titre"),Categorie.valueOf(x.getChildText("categorie")),auteur,x.getChildText("editeur"),Integer.parseInt(x.getChildText("anneeSortie")),Boolean.valueOf(x.getChildText("statut"))));
         }
+
         return oeuvres;
+
     }
+
+    @Override
+    public List<Oeuvre> getOeuvresParAuteur(int idAuteur){
+
+            List<Oeuvre> oeuvres = new ArrayList<>();
+            List<Element> list = root.getChildren("oeuvre");
+
+            for(Element x : list){
+                int id = Integer.parseInt(x.getAttributeValue("id"));
+                int aut_id = Integer.parseInt(x.getChild("auteur").getAttributeValue("idAuteur"));
+                if(aut_id == idAuteur){
+                    Auteur auteur = new AuteurDaoImp(Constants.AUTEUR_FILE).rechercherAuteur(aut_id);
+                    oeuvres.add(new Oeuvre(id,x.getChildText("titre"),Categorie.valueOf(x.getChildText("categorie")),auteur,x.getChildText("editeur"),Integer.parseInt(x.getChildText("anneeSortie")),Boolean.valueOf(x.getChildText("statut"))));
+                }
+            }
+            return oeuvres;
+
+    }
+
 }

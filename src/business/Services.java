@@ -23,13 +23,12 @@ public interface Services {
     public Auteur rechercherAuteur(String nom);
     public List<Auteur> getAuteurs();
 
-    public List<Oeuvre> getOeuvres(Auteur auteur);
-
     public void ajouterOeuvre(Oeuvre oeuvre);
     public void modifierOeuvre(Oeuvre oeuvre);
     public void supprimerOeuvre(Oeuvre oeuvre);
     public Oeuvre getOeuvre(int id);
     public List<Oeuvre> getOeuvres();
+    public List<Oeuvre> getOeuvresParAuteur(int idAuteur);
 
     public void ajouterPret(Pret pret);
     public void modifierPret(Pret pret);

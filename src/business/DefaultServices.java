@@ -90,10 +90,6 @@ public class DefaultServices implements Services{
         return this.auteurDao.getAuteurs();
     }
 
-    public List<Oeuvre> getOeuvres(Auteur auteur) {
-        return this.auteurDao.getOeuvres(auteur);
-    }
-
     @Override
     public void ajouterOeuvre(Oeuvre oeuvre) {
         this.oeuvreDao.ajouterOeuvre(oeuvre);
@@ -117,6 +113,10 @@ public class DefaultServices implements Services{
     @Override
     public List<Oeuvre> getOeuvres() {
         return this.oeuvreDao.getOeuvres();
+    }
+
+    public List<Oeuvre> getOeuvresParAuteur(int idAuteur) {
+        return this.oeuvreDao.getOeuvresParAuteur(idAuteur);
     }
 
     @Override

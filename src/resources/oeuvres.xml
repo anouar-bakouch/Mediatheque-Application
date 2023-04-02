@@ -38,10 +38,10 @@
     </oeuvre>
 
     <oeuvre id="5">
-        <titre>les misérables</titre>
+        <titre>le comte de monte cristo</titre>
         <categorie>roman</categorie>
         <editeur>gallimard</editeur>
-        <anneeSortie>1862</anneeSortie>
+        <anneeSortie>1844</anneeSortie>
         <auteur idAuteur="4"/>
         <statut>true</statut>
     </oeuvre>
