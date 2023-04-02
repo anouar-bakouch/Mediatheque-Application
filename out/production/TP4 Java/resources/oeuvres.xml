@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <oeuvres>
-
+    <oeuvre id="1">
+        <titre>La Joconde</titre>
+        <categorie>peinture</categorie>
+        <editeur>geneve</editeur>
+        <anneeSortie>1853</anneeSortie>
+        <auteur>leonardo da vinci</auteur>
+        <statut>true</statut>
+    </oeuvre>
 
 </oeuvres>

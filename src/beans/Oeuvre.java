@@ -1,9 +1,7 @@
 package beans;
-
 import enums.Categorie;
 
 public class Oeuvre {
-
         int id;
         private String titre;
         private Categorie categorie;

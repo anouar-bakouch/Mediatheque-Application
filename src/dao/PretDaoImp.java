@@ -58,7 +58,6 @@ public class PretDaoImp implements PretDao{
         e.addContent(idOeuvre);
         e.addContent(idAdherent);
         e.addContent(datePret);
-
         root.addContent(e);
         save();
     }
@@ -91,12 +90,11 @@ public class PretDaoImp implements PretDao{
     public Pret rechercherPret(int id) {
         List<Element> list = root.getChildren("pret");
         for (Element e : list) {
-            if (e.getChild("idOeuvre").getText().equals(String.valueOf(id))) {
-                Pret pret = null;
-                pret.setIdOeuvre(Integer.parseInt(e.getChild("idOeuvre").getText()));
-                pret.setIdAdherent(Integer.parseInt(e.getChild("idAdherent").getText()));
-                pret.setDatePret(e.getChild("datePret").getText());
-                return pret;
+            int x_id = Integer.parseInt(e.getChild("idOeuvre").getText().toString());
+            if ( x_id == id ) {
+                int IdAdherent = Integer.parseInt(e.getChild("idAdherent").getText());
+                String DatePret = e.getChild("datePret").getText();
+                return new Pret(id,IdAdherent,DatePret);
             }
         }
         return null;

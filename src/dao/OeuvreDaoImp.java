@@ -48,20 +48,22 @@ public class OeuvreDaoImp implements  OeuvreDao{
     public void ajouterOeuvre(Oeuvre oeuvre) {
 
         Element e = new Element("oeuvre");
-        Element id = new Element("id");
+        e.setAttribute("id",String.valueOf(oeuvre.getId()));
         Element titre = new Element("titre");
         Element categorie = new Element("categorie");
         Element editeur = new Element("editeur");
         Element anneeSortie = new Element("anneeSortie");
         Element auteur = new Element("auteur");
+        Element statut = new Element("statut");
 
         titre.addContent(oeuvre.getTitre());
         categorie.addContent(String.valueOf(oeuvre.getCategorie()));
         editeur.addContent(oeuvre.getEditeur());
         anneeSortie.addContent(String.valueOf(oeuvre.getAnneeSortie()));
         auteur.setAttribute("idAuteur",String.valueOf(oeuvre.getAuteur().getId()));
+        auteur.addContent(oeuvre.getAuteur().getNom());
+        statut.addContent(String.valueOf(oeuvre.isStatut()));
 
-        e.addContent(id);
         e.addContent(titre);
         e.addContent(anneeSortie);
         e.addContent(auteur);

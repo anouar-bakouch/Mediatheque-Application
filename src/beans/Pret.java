@@ -24,15 +24,4 @@ public class Pret {
             return datePret;
         }
 
-        public void setIdAdherent(int idAdherent) {
-            this.idAdherent = idAdherent;
-        }
-
-        public void setIdOeuvre(int idOeuvre) {
-            this.idOeuvre = idOeuvre;
-        }
-
-        public void setDatePret(String datePret) {
-            this.datePret = datePret;
-        }
 }

@@ -6,7 +6,7 @@
     <dateNaissance>2003</dateNaissance>
   </auteur>
   <auteur id="3">
-    <nom>ivan</nom>
+    <nom>leonardo da vinci</nom>
     <prenom>test</prenom>
     <dateNaissance>test</dateNaissance>
   </auteur>
